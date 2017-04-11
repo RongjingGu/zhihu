@@ -3,7 +3,7 @@ package com.zhihu.data;
 import java.util.List;
 
 /**
- * Created by Gurongjing on 2017/4/11.
+ * Created by Gurongjing on 2017/4/11
  */
 public class Topic {
 

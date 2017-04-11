@@ -2,7 +2,9 @@ package com.zhihu.mongo.core;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
+import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import com.zhihu.data.Topic;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -58,8 +60,24 @@ public class MongoService {
         mongoClient.getDB(databaseName).getCollection(collectionName).insert(useDocument);
     }
 
+    public void insertTopic(String dataBaseName,String collectionName,Topic topic) throws Exception{
+        BasicDBObject rowDocument = new BasicDBObject();
+        rowDocument.append("topicId",topic.getTopicId());
+        rowDocument.append("topicName",topic.getTopicName());
+        rowDocument.append("discrible",topic.getDiscrible());
+
+        rowDocument.append("followers",topic.getFollowers());
+        rowDocument.append("fatherTopicsNames",topic.getFatherTopicsNames());
+        getCollection(dataBaseName,collectionName).insert(rowDocument);
+    }
+
     public static void main(String[] args){
         UUID uuid = UUID.randomUUID();
         System.out.println(uuid);
+    }
+
+    private DBCollection getCollection(String databaseName,
+                                       String collectionName) throws Exception {
+        return getDataBase(databaseName).getCollection(collectionName);
     }
 }
