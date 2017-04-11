@@ -8,6 +8,8 @@ import com.zhihu.data.Topic;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
