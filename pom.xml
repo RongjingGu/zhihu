@@ -93,6 +93,7 @@
         <module>zhihu-db</module>
         <module>zhihu-commons</module>
         <module>zhihu-core</module>
+        <module>zhihu-cluster</module>
     </modules>
 
 
